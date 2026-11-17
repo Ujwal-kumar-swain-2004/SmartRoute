@@ -1,0 +1,21 @@
+node_modules/
+dist/
+target/
+*.log
+.env
+playwright-report/
+test-results/
+backend/src/main/resources/static/
+*.tsbuildinfo
+data/*.download.json
+.env.*
+!.env.example
+.idea/
+.vscode/
+.aws/
+.codex/
+# Collected third-party transit snapshots: reuse licence not confirmed.
+# Recreate locally using scripts/collect-transit-data.mjs.
+data/transit/raw/
+data/transit/*.geojson
+data/transit/bus-stops.csv

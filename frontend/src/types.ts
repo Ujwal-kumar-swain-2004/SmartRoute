@@ -1,0 +1,11 @@
+export type Place={id:string;name:string;lat:number;lng:number;category:string};
+export type Road={id:string;from:string;to:string;km:number;minutes:number;corridor:number};
+export type Network={places:Place[];roads:Road[]};
+export type Metrics={executionMs:number;visitedNodes:number;settledNodes:number;preprocessingMs:number};
+export type Route={id:string;label:string;nodes:string[];roadIds:string[];distanceKm:number;travelMinutes:number;stopMinutes:number;arrival:string;metrics:Metrics;stopId:string|null;detourKm:number;congestion:Record<string,number>};
+export type Request={source:string;destination:string;departure:string;scenario:string;objective:string;algorithm:string;category:string|null;stopId:string|null;stopMinutes:number;fuelRange:number|null;reserve:number;emergency:boolean};
+export type Result={routes:Route[];stopAlternatives:Route[];message:string;mode:string;algorithm:string};
+export const algorithms:Record<string,string>={DIJKSTRA:'Static Dijkstra',TIME_DEPENDENT:'Time-dependent Dijkstra',ALT:'ALT · A* with landmarks',CH:'Contraction hierarchies'};
+export const minutes=(n:number)=>`${Math.round(n)} min`;
+export const arrival=(s:string)=>new Date(s).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+export const initialRequest:Request={source:'p0',destination:'p9',departure:`${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,'0')}-${String(new Date().getDate()).padStart(2,'0')}T09:00`,scenario:'MORNING',objective:'FASTEST',algorithm:'TIME_DEPENDENT',category:null,stopId:null,stopMinutes:10,fuelRange:null,reserve:2,emergency:false};

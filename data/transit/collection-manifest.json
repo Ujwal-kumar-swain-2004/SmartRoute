@@ -1,0 +1,138 @@
+{
+  "collectedDate": "2026-11-17",
+  "fetchedAt": "2026-11-17T12:11:45.022Z",
+  "sources": [
+    {
+      "label": "bus-depots",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusStops/FeatureServer/2",
+      "name": "Depot",
+      "status": "collected",
+      "features": 3,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "bus-depots.geojson"
+    },
+    {
+      "label": "bus-terminals",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusStops/FeatureServer/1",
+      "name": "OD_Terminal",
+      "status": "collected",
+      "features": 4,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "bus-terminals.geojson"
+    },
+    {
+      "label": "bus-stops",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusStops/FeatureServer/3",
+      "name": "Bus_Stops",
+      "status": "collected",
+      "features": 394,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "bus-stops.geojson"
+    },
+    {
+      "label": "route-layer-11",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/11",
+      "name": "Route_20_Down_Khurda",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-11.geojson"
+    },
+    {
+      "label": "route-layer-12",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/12",
+      "name": "Route_21_Up_Khurda",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-12.geojson"
+    },
+    {
+      "label": "route-layer-13",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/13",
+      "name": "Route_22_UP_Jatni_Khurda",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-13.geojson"
+    },
+    {
+      "label": "route-layer-15",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/15",
+      "name": "Route_24_UP_Sai_Temple",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-15.geojson"
+    },
+    {
+      "label": "route-layer-16",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/16",
+      "name": "Route_25_UP_Mancheswar",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-16.geojson"
+    },
+    {
+      "label": "route-layer-14",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/14",
+      "name": "Route_23_UP_SUM",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-14.geojson"
+    },
+    {
+      "label": "route-layer-17",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/17",
+      "name": "Route_26_UP_Chaikesani",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-17.geojson"
+    },
+    {
+      "label": "route-layer-19",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/19",
+      "name": "Route_28_UP_Kalinga_N",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-19.geojson"
+    },
+    {
+      "label": "route-layer-18",
+      "url": "https://bhubaneswarone.in/arcgis/rest/services/BhubaneswarOne/UpdatedBusRouteNetwork/MapServer/18",
+      "name": "Route_27_UP_Aiims",
+      "status": "collected",
+      "features": 1,
+      "lastEditDate": null,
+      "copyrightText": "",
+      "file": "route-layer-18.geojson"
+    },
+    {
+      "label": "CRUT linked network map",
+      "url": "https://cms.bhubaneswarone.in/uploadDocuments/content/Latest_MO_BUS_Full_Network_Final_English_2_For_Odia_and_English_compressed.pdf",
+      "status": "collected",
+      "file": "raw/crut-network-map.pdf",
+      "version": "Unverified: MO BUS filename; check the current CRUT map before operational use"
+    }
+  ],
+  "limitations": [
+    "Static snapshots only; not live bus positions or GTFS schedules.",
+    "GIS layer revision dates and reuse licence are not stated in the metadata checked. Confirm currency and reuse with the owner.",
+    "UpdatedBusRouteNetwork contains a subset of published GIS routes, not a verified complete current Ama Bus network."
+  ]
+}

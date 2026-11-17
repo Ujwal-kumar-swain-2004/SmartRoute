@@ -1,0 +1,15 @@
+﻿import {useEffect,useState} from 'react';
+import {useMutation} from '@tanstack/react-query';
+import axios from 'axios';
+import {MapPin,Search} from 'lucide-react';
+import type {Network} from './types';
+export type Location={label:string;lat:number;lng:number};
+export type SearchPlace=Location&{id:string;address:string};
+export function errorText(e:unknown){return axios.isAxiosError(e)?String(e.response?.data?.message??e.response?.data?.detail??'The service could not be reached. Please try again.'):'The service could not be reached.';}
+export default function LocationPicker({label,value,onChange,network,onPick,picking}:{label:string;value:Location|null;onChange:(p:Location|null)=>void;network?:Network;onPick:()=>void;picking:boolean}){
+ const [text,setText]=useState(value?.label??'');
+ useEffect(()=>{if(value)setText(value.label)},[value]);
+ const search=useMutation({mutationFn:async(query:string)=>(await axios.get<SearchPlace[]>('/api/tomtom/search',{params:{q:query},timeout:20000})).data});
+ function submit(){if(text.trim().length>=2)search.mutate(text.trim())}
+ return <div className="location-picker"><label className="field-label">{label}<div className="search-input"><input aria-label={`${label} search`} value={text} placeholder="Search a place or address in India" onChange={e=>{setText(e.target.value);onChange(null);search.reset()}} onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();submit()}}}/><button type="button" aria-label={`Search ${label.toLowerCase()}`} disabled={search.isPending||text.trim().length<2} onClick={submit}><Search size={15}/></button></div></label>{search.isPending&&<p className="picker-hint" role="status">Searching places…</p>}{search.isError&&<p role="alert" className="picker-error">{errorText(search.error)}</p>}{search.data&&<div className="search-results" role="listbox" aria-label={`${label} results`}>{search.data.length===0?<p>No matching places. Try another address or pick on the map.</p>:search.data.map((p,i)=><button type="button" role="option" aria-selected={false} key={`${p.id}-${i}`} onClick={()=>{onChange({label:p.label,lat:p.lat,lng:p.lng});search.reset()}}><strong>{p.label}</strong><small>{p.address}</small></button>)}</div>}<div className="picker-options"><select aria-label={`${label} landmark`} value={network?.places.find(p=>p.lat===value?.lat&&p.lng===value?.lng)?.id??''} onChange={e=>{const p=network?.places.find(p=>p.id===e.target.value);if(p){onChange({label:p.name,lat:p.lat,lng:p.lng});search.reset()}}}><option value="">Or choose a landmark</option>{network?.places.filter(p=>p.category==='LANDMARK').map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select><button type="button" className={picking?'picking':''} aria-pressed={picking} onClick={onPick} title={`Pick ${label.toLowerCase()} on map`}><MapPin size={15}/>{picking?'Cancel':'Map'}</button></div>{value?<p className="picker-hint">Selected: {value.label}</p>:<p className="picker-hint">Choose a search result, landmark, or map point.</p>}</div>
+}
